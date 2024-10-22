@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Centros11F - mapa y tabla</title>
+
+<script src="home/alex/Projects/11F/web11F/libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="home/alex/Projects/11F/web11F/libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="home/alex/Projects/11F/web11F/libs/navigation-1.1/tabsets.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-binding-2.2.0/leaflet.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-providers-1.13.0/leaflet-providers_1.13.0.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-providers-plugin-2.2.0/leaflet-providers-plugin.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="home/alex/Projects/11F/web11F/libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="home/alex/Projects/11F/web11F/libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/datatables-binding-0.29/datatables.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="home/alex/Projects/11F/web11F/libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="home/alex/Projects/11F/web11F/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="home/alex/Projects/11F/web11F/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p><img
+src="https://raw.githubusercontent.com/11defebrero/assets/main/images/banner11F.png" /></p>
+<style type="text/css">
+
+h1 {
+  color: #00BCB4;
+}
+h2 {
+  color: #00BCB4;
+}
+h3 {
+  color: #00BCB4;
+}
+h4 {
+  color: #00BCB4;
+}
+h5 {
+  color: #00BCB4;
+}
+li {
+  color: #00BCB4;
+}
+</style>
+<div id="centros-11f" class="section level1">
+<h1>Centros-11F</h1>
+<p>¿Organizáis actividades internamente en vuestro centro educativo para
+celebrar el <a href="https://11defebrero.org/">Día de la Mujer y la Niña
+en la Ciencia</a>? Entonces sois un Centro11F.</p>
+<p>Si tenéis ya todo organizado, podéis comunicárnoslo a través del
+formulario que encontrarás en <a
+href="https://11defebrero.org/centros-educativos/">este enlace</a>.</p>
+<p>Si detectas algún error en estos datos, por favor, escribe a: <a
+href="mailto:correccionesweb11F@gmail.com"
+class="email">correccionesweb11F@gmail.com</a></p>
+<p>Datos actualizados el 2024-02-21 con un total de 92 centros
+inscritos.</p>
+<hr />
+<div id="buscar-en-mapa" class="section level3">
+<h3><a href="#mapa-centros11f">Buscar en mapa</a></h3>
+</div>
+<div id="buscar-en-tabla" class="section level3">
+<h3><a href="#tabla-centros11f">Buscar en tabla</a></h3>
+</div>
+<div id="ver-todos" class="section level3">
+<h3><a href="centros11f_todos.html#detalles" target="_blank">Ver
+todos</a></h3>
+<hr />
+</div>
+<div id="mapa-centros11f" class="section level3">
+<h3>Mapa Centros11F</h3>
+<p>En este mapa interactivo puedes consultar las actividades programadas
+por los centros educativos, Centros11F. La localización de los centros
+en el mapa es aproximada, corresponde al código postal en el que se
+ubican.</p>
+<p>Si pinchas en cualquier icono podrás acceder a más información sobre
+cada actividad.</p>
+<p>Si tienes problema al visualizar el mapa, por favor, prueba con otro
+navegador.</p>
+<div class="leaflet html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-17a3936c32dcc43cc020" style="width:100%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-17a3936c32dcc43cc020">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[38.93028092030836,38.97736893258283,38.97736893258283,39.94828702338312,39.94828702338312,37.43405803422858,37.43405803422858,37.43405803422858,40.47489723987481,36.26929310055772,37.47467110097303,40.66484355854667,40.66484355854667,41.60637141284084,38.94540937219107,38.86796679982002,41.6514115173152,38.37253538883596,40.46989175647445,39.50829359330618,41.28735961251676,41.57864283901398,40.39550579063734,40.06637424290675,41.40235914806053,41.57700860781161,40.24313724922978,42.46554239201834,40.43422566884455,40.43422566884455,40.36501055711861,37.22910021816238,39.47810593515052,39.70101000261373,40.05170863594299,37.21714465385582,42.21615201655653,39.15689626624047,43.21542124699456,41.66789868288183,36.47579792126503,39.88771558674455,39.84773727459115,39.35510398261734,39.35510398261734,41.62753173334188,38.68783079188664,40.09189954053943,41.63984123562499,41.36211935226721,39.47698751421365,39.39639278730113,41.63245706712461,43.31889465051768,28.10182657907065,43.35695725541468,39.46606731332955,42.45150997066228,39.0674488729794,39.0674488729794,39.02765767709158,37.26867736069885,40.39074303984275,43.25696652935844,39.3839523492254,41.63747581313176,42.84149606700003,43.43666195598857,43.43666195598857,36.7830411271766,37.187502407692,28.08896810588586,43.33859415852319,43.38151499432616,42.59702239497758,38.46225222155748,40.38580882502355,40.51198586598597,37.26253554253498,37.2900947483984,39.45859167672749,40.04004545550132,39.46605595839236,43.3693524665754,36.64004092737579,41.46886213155044,37.11426469092597,37.24938003196495,37.33027782570821],[-6.612229800795608,-0.178701298513585,-0.178701298513585,-4.073716987851855,-4.073716987851855,-5.984407529972008,-5.984407529972008,-5.984407529972008,-3.573317559112719,-6.077255358752483,-5.102424303595528,-3.749782795234513,-3.749782795234513,-0.930953213441474,-6.516118740394558,-6.080375255899093,-0.913260544556994,-0.470237867131564,-3.460392941949505,-0.411285647487135,-4.711271216686822,-0.915772682853125,-3.651652377288146,-4.179535287065869,2.156594330483966,-1.117824219660731,-3.561618790347338,-2.431942025146841,-4.100041457391637,-4.100041457391637,-3.699080265104902,-7.299294700632467,-0.36419986962518,3.353392376296567,-3.72220116246865,-4.512237862673784,-8.69604114370226,-4.139207840270116,-2.720004304366041,-0.906803708739594,-5.138902276881613,-1.372094504898119,-3.03313632922628,-6.965057865674741,-6.965057865674741,-0.885648944061795,-7.109684024871388,0.122777166191138,-4.73937289320047,-1.632796450014945,-0.375438102491669,-0.394523126534127,2.672411234786211,-3.929899751024717,-15.56829056174838,-5.851156277102878,-6.372644794290358,-2.422903191955003,-3.611458173674067,-3.611458173674067,-1.048038903335974,-7.004705897517168,-3.687577803403142,-2.900072520207167,-2.041036596528732,-0.905243198031802,-2.725972872885669,-5.856631475783799,-5.856631475783799,-6.303538985469959,-3.604994110140071,-15.43073218649602,-8.394922857740598,-8.401594926995561,-5.613620895789702,-0.372722543513912,-3.79769262857593,-3.327942429870741,-6.944540240643728,-5.805815862851174,-0.371159046653491,-6.102767197155843,-3.537813272820211,-5.866221842591744,-6.136653769234123,2.08465153801494,-5.426945841723072,-5.124663315756385,-6.535900316277177],{"iconUrl":{"data":"https://raw.githubusercontent.com/11defebrero/assets/main/images/chincheta_gris.png","index":0},"iconWidth":20,"iconHeight":30,"iconAnchorX":10,"iconAnchorY":15},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<a href='centros11f_todos.html#referencia-28' target='_self'>IES Extremadura<\/a><br/>La ciencia no es cuestión de género<br/>Exposición","<a href='centros11f_todos.html#referencia-39' target='_self'>Colegio Abecé (Actividad 1)<\/a><br/>Mujeres 11D<br/>Exposición","<a href='centros11f_todos.html#referencia-40' target='_self'>Colegio Abecé (Actividad 2)<\/a><br/>Exposición de cuadros<br/>Exposición","<a href='centros11f_todos.html#referencia-41' target='_self'>IES JULIO VERNE<\/a><br/>\"Viajes científicos extraordinarios\"<br/>Juejos de rol, dramatizaciones.","<a href='centros11f_todos.html#referencia-42' target='_self'> IES JULIO VERNE<\/a><br/>“Viajes científicos extraordinarios”<br/> Juejos de rol, dramatizaciones.","<a href='centros11f_todos.html#referencia-43' target='_self'>IES Pino Montano<\/a><br/>Evolución histórica de la mujer en el campo STEM<br/>Taller;Exposición;Escape Room","<a href='centros11f_todos.html#referencia-44' target='_self'>E.I. FERNANDO VILLALÓN<\/a><br/>LAS MUJERES Y EL MEDIO AMBIENTE<br/>Taller;Proyecto","<a href='centros11f_todos.html#referencia-45' target='_self'>E.I. FERNANDO VILLAÓN<\/a><br/>LAS MUJERES Y EL MEDIO AMBIENTE<br/>Taller;Proyecto","<a href='centros11f_todos.html#referencia-48' target='_self'>IES Alameda de Osuna<\/a><br/>III Concurso de monólogos científicos IES Alameda de Osuna<br/>Exposición;III Concurso de monólogos científicos","<a href='centros11f_todos.html#referencia-49' target='_self'>IES Los Molinos <\/a><br/>Desayuno Científico <br/>Taller","<a href='centros11f_todos.html#referencia-50' target='_self'>CEIP CIUDAD DEL SOL<\/a><br/>Cuenta mi historia<br/>Proyecto","<a href='centros11f_todos.html#referencia-51' target='_self'>CEIP Ángel León<\/a><br/>Centros11F<br/>Taller;Exposición;","<a href='centros11f_todos.html#referencia-52' target='_self'>IES Marqués de Santillana<\/a><br/>Yincana de mujeres científicas<br/>Exposición de pósteres y yincana","<a href='centros11f_todos.html#referencia-61' target='_self'>CPI Soledad Puértolas<\/a><br/>De Isabel Zendal a Katalin Karikó: las vacunas salvan vidas<br/>Taller","<a href='centros11f_todos.html#referencia-62' target='_self'>IES Eugenio Frutos<\/a><br/>MUCIREÑAS. Mujeres Científicas de Guareña<br/>Proyecto","<a href='centros11f_todos.html#referencia-63' target='_self'>IES Eugenio Frutos<\/a><br/>Exposición Mujeres Matemáticas . Concurso<br/>Exposición;Concurso","<a href='centros11f_todos.html#referencia-64' target='_self'>Colegio Padre Enrique de Ossó<\/a><br/>Las mujeres científicas pusieron los cimientos, nosotros somos el futuro<br/>Proyecto","<a href='centros11f_todos.html#referencia-69' target='_self'>IES Jaime II<\/a><br/>Exposición sobre mujeres científicas a partir de las infografías realizadas por el alumnado y el cuestionario sobre la misma<br/>Exposición","<a href='centros11f_todos.html#referencia-73' target='_self'>CEIP MIGUEL HERNÁNDEZ <\/a><br/>EN EL LABORATORIO DE...<br/>Taller","<a href='centros11f_todos.html#referencia-74' target='_self'>COLEGIO JUAN XXIII<\/a><br/>MUJERES EN LA CIENCIA Y LA TECNOLOGÍA: PASADO, PRESENTE Y FUTURO<br/>Exposición","<a href='centros11f_todos.html#referencia-76' target='_self'>IES ALFONSO VI <\/a><br/>Semana de la ciencia<br/>Taller;Exposición;Proyecto","<a href='centros11f_todos.html#referencia-77' target='_self'>CEIP MONTECANAL<\/a><br/>Exposción de fotografías sobre experiencias realizadas en el aula y carteles alusivos al 11F <br/>Exposición","<a href='centros11f_todos.html#referencia-78' target='_self'>Colegio Los Tilos<\/a><br/>XV Semana de las Ciencias del Colegio Los Tilos<br/>Proyecto","<a href='centros11f_todos.html#referencia-79' target='_self'>IES Aldebarán<\/a><br/>Las Estrellas de la Ciencia<br/>Exposición","<a href='centros11f_todos.html#referencia-80' target='_self'>Reina Violant<\/a><br/>Semana de la mujer y la niña en la Ciencia<br/>Taller;Exposición;Acto colaboración Hospital Vall d'Hebrón","<a href='centros11f_todos.html#referencia-81' target='_self'>IES de la Muela<\/a><br/>Mujeres científicas con pseudónimo o excluidas de reconocimiento<br/>Exposición;Actividades de aula","<a href='centros11f_todos.html#referencia-82' target='_self'>IES Anselmo Lorenzo<\/a><br/>Recreos científicos en honor a mujeres científicas<br/>Prácticas de laboratorio","<a href='centros11f_todos.html#referencia-83' target='_self'>Ies Comercio <\/a><br/>Mi científica favorita<br/>Exposición","<a href='centros11f_todos.html#referencia-91' target='_self'>IES Valmayor<\/a><br/>Día de la Mujer y la Niña en la ciencia<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-92' target='_self'>IES Valmayor <\/a><br/>Semana de la Mujer y la Niña en la Ciencia en Valmayor <br/>Taller;Exposición;Ponencias","<a href='centros11f_todos.html#referencia-97' target='_self'>IES ENRIQUE TIERNO GALVÁN<\/a><br/>Charlas y exposición de biografías.<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-99' target='_self'>IES Galeón<\/a><br/>Representación teatral mujeres científicas <br/>Exposición;Proyecto","<a href='centros11f_todos.html#referencia-100' target='_self'>Colegio Pío XII<\/a><br/>Descubriendo científicas<br/>Exposición;Proyecto","<a href='centros11f_todos.html#referencia-101' target='_self'>IES Llorenç Garcias i Font<\/a><br/>Jo també vull ser científica <br/>Exposición;Participació en el concurs \"Jo també vull ser cientifica\"","<a href='centros11f_todos.html#referencia-103' target='_self'>CEIP Nª Sª de la Salud<\/a><br/>Mujeres en la ciencia<br/>Taller;Exposición;Proyecto","<a href='centros11f_todos.html#referencia-104' target='_self'>CEIP San Juan Bautista<\/a><br/>Charla sobre la mujer, agricultura y medioambiente.<br/>Exposición","<a href='centros11f_todos.html#referencia-108' target='_self'>Escola Rosalía de Castro<\/a><br/>Actividade nos barcos oceanográficos<br/>Taller","<a href='centros11f_todos.html#referencia-109' target='_self'>IES RIBERA DEL BULLAQUE<\/a><br/>CIENCIA EN FEMENINO<br/>Proyecto","<a href='centros11f_todos.html#referencia-110' target='_self'>CPEIPS El Carmelo HLBHIP (AMOREBIETA)<\/a><br/>IZARREN IBILBIDEA (el paseo de las estrellas)<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-111' target='_self'>Colegio La Anunciata<\/a><br/>Un paseo por la mujer y la niña en la ciencia.<br/>Taller","<a href='centros11f_todos.html#referencia-116' target='_self'>ÍES Monterroso<\/a><br/>#ConLaCiencia<br/>Diferentes actividades durante la semana del 5 al 9 de febrero","<a href='centros11f_todos.html#referencia-129' target='_self'>IES SERRANÍA BAJA<\/a><br/>Charla Mujeres Científica<br/>Exposición;Charla","<a href='centros11f_todos.html#referencia-130' target='_self'>IES ORDEN DE SANTIAGO<\/a><br/>Las alumnas de   Bachillerato   van a realizar   prácticas de biología,  física y  programación. <br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-141' target='_self'>I.E.S.Joaquín Sama<\/a><br/>Concurso de puertas homenajeando a las mujeres científicas<br/>Exposición","<a href='centros11f_todos.html#referencia-142' target='_self'>I.E.S. Joaquín Sama<\/a><br/>\"Tras el gran legado de ellas\"<br/>Breakout","<a href='centros11f_todos.html#referencia-149' target='_self'>CEIP MARÍA MOLINER<\/a><br/>De profesión... CIENTÍFICA<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-157' target='_self'>IES Puente Ajuda<\/a><br/>Yo soy de ciencias.<br/>Vídeo","<a href='centros11f_todos.html#referencia-158' target='_self'>IES Torre del Rei<\/a><br/>Exposición \"Arquitectes i enginyeres civils\" <br/>Exposición","<a href='centros11f_todos.html#referencia-159' target='_self'>CEIP Ponce de León <\/a><br/>Semana de la mujer y la niña STEAM<br/>Talleres y charlas","<a href='centros11f_todos.html#referencia-161' target='_self'>Colegio Santa Ana ( Calatayud)<\/a><br/>“Camino de estrellas”<br/>Proyecto","<a href='centros11f_todos.html#referencia-163' target='_self'>IES Barri del Carme<\/a><br/>Dones STEM, dones valents<br/>Exposición","<a href='centros11f_todos.html#referencia-165' target='_self'>IES Berenguer Dalmau<\/a><br/>La ciencia es para tod@s<br/>Exposición","<a href='centros11f_todos.html#referencia-168' target='_self'>Escola Municipal d'Adults Natura<\/a><br/>Creación de juegos  sobre mujeres científicas<br/>Proyecto","<a href='centros11f_todos.html#referencia-169' target='_self'>IES Santa Cruz<\/a><br/>Grandes descubrimientos por grandes mujeres<br/>Exposición;nos disfrazamos de mujeres y hombres de la ciencia","<a href='centros11f_todos.html#referencia-170' target='_self'>IES Villa de Firgss<\/a><br/>Escape room sobre “La Mujer y la niña en la ciencia “<br/>Escape Room Grupal online ","<a href='centros11f_todos.html#referencia-171' target='_self'>IES Alfonso II<\/a><br/>Dialogamos con Concha Masa Noceda en el IES Alfonso II<br/>Exposición","<a href='centros11f_todos.html#referencia-175' target='_self'>IES EL BROCENSE<\/a><br/>III Yincana STEAM<br/>Yincana","<a href='centros11f_todos.html#referencia-187' target='_self'>CEIP COMUNIDAD DE APRENDIZAJE CABALLERO DE LA ROSA<\/a><br/>SEMANA DE LA MUJER Y LA NIÑA EN LA CIENCIA<br/>Taller;Exposición;Proyecto;Asistencia a exposiciones, charlas y otras actividades dentro de la programación del Día Internacional de la Mujer y la Niña en la Ciencia programadas por otras instituciones","<a href='centros11f_todos.html#referencia-193' target='_self'>IES Ojos del Guadiana <\/a><br/>Descubriendo mujeres científicas<br/>Proyecto","<a href='centros11f_todos.html#referencia-194' target='_self'>IES Ojos del Guadiana<\/a><br/>Somos mujeres y hacemos ciencia<br/>Exposición","<a href='centros11f_todos.html#referencia-201' target='_self'>IES FERNANDO III<\/a><br/>MUJERES ASTRONAUTAS QUE HAN LLEGADO MUY LEJOS<br/>Taller;Exposición;Proyecto","<a href='centros11f_todos.html#referencia-213' target='_self'>IES Juan Pérez Mercader<\/a><br/>Quiero ser Ingeniera<br/>Conferencias","<a href='centros11f_todos.html#referencia-214' target='_self'>CESIF<\/a><br/>En CESIF (https://www.cesif.es) hemos organizado un concurso entre nuestros alumn@s para conmemorar el día internacional de la  mujer y la niña en la ciencia.<br/>Concurso \"La Mujer en la Ciencia\"","<a href='centros11f_todos.html#referencia-229' target='_self'>Colegio Alemán de Bilbao<\/a><br/>Biomedicina<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-231' target='_self'>IESO PÚBLIO LÓPEZ MONDÉJAR<\/a><br/>¿Y si nuestras científicas hubiesen tenido Instagram?<br/>Proyecto","<a href='centros11f_todos.html#referencia-233' target='_self'>IES JERÓNIMO ZURITA<\/a><br/>CASTING DE MUJERES CIENTÍFICAS Y ESCINIFICACIÓN DE CIENTÍFICAS EN DIFERENTES AULAS<br/>TEATRALIZACIÓN DE MUJERES CIENTÍFICAS","<a href='centros11f_todos.html#referencia-239' target='_self'>IES Zabalgana BHI<\/a><br/>Conferencias mpartidas por mujeres sobre ciencia<br/>Conferencia","<a href='centros11f_todos.html#referencia-243' target='_self'>IES de LLanera<\/a><br/>#científicasenTikTok<br/>creación de videos","<a href='centros11f_todos.html#referencia-244' target='_self'>IES de Llanera<\/a><br/>Conocemos el Proyecto STEM<br/>Exposición","<a href='centros11f_todos.html#referencia-246' target='_self'>IES Cristóbal Colón<\/a><br/>Exposición de mujeres científicas en el mar<br/>Exposición","<a href='centros11f_todos.html#referencia-247' target='_self'>Instituto Provincial de Educación Permanente (IPEP) de Granada<\/a><br/>Mujeres científicas en la Historia<br/>Exposición","<a href='centros11f_todos.html#referencia-249' target='_self'>Colegio Heidelberg<\/a><br/>\"Amazonía: Defensoras de la Naturaleza\"<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-250' target='_self'>Club de Ciencia y Tecnología ZalaTecno de IES Menéndez Pidal Zalaeta<\/a><br/>Quincena 11F de ZalaTecno<br/>Ciclo de conferencias con/ o sobre mujeres STEAM","<a href='centros11f_todos.html#referencia-251' target='_self'>IES Ramón Menéndez Pidal Zalaeta<\/a><br/>Quincena 11F de ZalaTecno- Actividades<br/>PROGRAMA DE ACTIVIDADES 11F  ZALATECNO","<a href='centros11f_todos.html#referencia-252' target='_self'>IES ERAS DE RENUEVA<\/a><br/>Taller de creps con Marie Curie y Ève Curie<br/>Taller","<a href='centros11f_todos.html#referencia-255' target='_self'>Liceo francés internacional de Alicante<\/a><br/>Charlas-coloquio por mujeres científicas dirigidas a los alumnos de ESO<br/>Charlas-coloquio ","<a href='centros11f_todos.html#referencia-257' target='_self'>Arcangel International School<\/a><br/>La Mujer en la Ciencia y la Ingeniería<br/>Charla online","<a href='centros11f_todos.html#referencia-258' target='_self'>Colegio Lope de Vega<\/a><br/>Historia de las mujeres en la ciencia<br/>Taller","<a href='centros11f_todos.html#referencia-263' target='_self'>IES Jose Caballero<\/a><br/>Quiero organizar una charla con vosotros<br/>Exposición","<a href='centros11f_todos.html#referencia-278' target='_self'>CEIP MANUEL ALONSO<\/a><br/>EXPOSICIÓN TRABAJOS DE INVESTIGACIÓN. LA MUJER Y LA NIÑA EN LA CIENCIA.<br/>Exposición","<a href='centros11f_todos.html#referencia-280' target='_self'>CEIP Alejandra Soler<\/a><br/>Día de la Mujer y Ciencia. <br/>Taller","<a href='centros11f_todos.html#referencia-281' target='_self'>IES Parque de Monfragüe<\/a><br/>CONOCE A ALGUNAS DE LAS MUJERES CIENTÍFICAS MÁS INFLUYENTES EN LA HISTORIA<br/>Vídeos, audios y juego del dominó para conocer a algunas científicas","<a href='centros11f_todos.html#referencia-282' target='_self'>IES VALDEHIERRO <\/a><br/>Gymkhana 11F \"Mujeres en la ciencia\"<br/>Gymkhana","<a href='centros11f_todos.html#referencia-283' target='_self'>CEIP San Pedro de los Arcos<\/a><br/>¿A dónde nos lleva Valentina?<br/>Proyecto","<a href='centros11f_todos.html#referencia-285' target='_self'>IES Francisco Romero Vargas<\/a><br/> La mujer y la niña en la ciencia<br/>Taller;Exposición;Proyecto","<a href='centros11f_todos.html#referencia-286' target='_self'>Collegi Creanova<\/a><br/>Jornada de Charlas lideradas por mujeres con ciencia<br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-289' target='_self'>IES Fray Bartolomé de las Casas <\/a><br/>De la Antártida a la Ingeniería Forestal... El papel de la mujer en la Ciencia <br/>Taller;Exposición","<a href='centros11f_todos.html#referencia-290' target='_self'>IES FRANCISCO RODRÍGUEZ MARÍN<\/a><br/>\"Dale la vuelta a la foto\"<br/>OBRA TEATRAL","<a href='centros11f_todos.html#referencia-291' target='_self'>IES San Antonio<\/a><br/>‘Yo también soy científica’, eslogan de la alumnas de 4º de ESO del IES San Antonio para la celebración del Día Internacional de la Mujer y la Niña en la Ciencia #11F<br/>Taller"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,["IES Extremadura","Colegio Abecé (Actividad 1)","Colegio Abecé (Actividad 2)","IES JULIO VERNE"," IES JULIO VERNE","IES Pino Montano","E.I. FERNANDO VILLALÓN","E.I. FERNANDO VILLAÓN","IES Alameda de Osuna","IES Los Molinos ","CEIP CIUDAD DEL SOL","CEIP Ángel León","IES Marqués de Santillana","CPI Soledad Puértolas","IES Eugenio Frutos","IES Eugenio Frutos","Colegio Padre Enrique de Ossó","IES Jaime II","CEIP MIGUEL HERNÁNDEZ ","COLEGIO JUAN XXIII","IES ALFONSO VI ","CEIP MONTECANAL","Colegio Los Tilos","IES Aldebarán","Reina Violant","IES de la Muela","IES Anselmo Lorenzo","Ies Comercio ","IES Valmayor","IES Valmayor ","IES ENRIQUE TIERNO GALVÁN","IES Galeón","Colegio Pío XII","IES Llorenç Garcias i Font","CEIP Nª Sª de la Salud","CEIP San Juan Bautista","Escola Rosalía de Castro","IES RIBERA DEL BULLAQUE","CPEIPS El Carmelo HLBHIP (AMOREBIETA)","Colegio La Anunciata","ÍES Monterroso","IES SERRANÍA BAJA","IES ORDEN DE SANTIAGO","I.E.S.Joaquín Sama","I.E.S. Joaquín Sama","CEIP MARÍA MOLINER","IES Puente Ajuda","IES Torre del Rei","CEIP Ponce de León ","Colegio Santa Ana ( Calatayud)","IES Barri del Carme","IES Berenguer Dalmau","Escola Municipal d'Adults Natura","IES Santa Cruz","IES Villa de Firgss","IES Alfonso II","IES EL BROCENSE","CEIP COMUNIDAD DE APRENDIZAJE CABALLERO DE LA ROSA","IES Ojos del Guadiana ","IES Ojos del Guadiana","IES FERNANDO III","IES Juan Pérez Mercader","CESIF","Colegio Alemán de Bilbao","IESO PÚBLIO LÓPEZ MONDÉJAR","IES JERÓNIMO ZURITA","IES Zabalgana BHI","IES de LLanera","IES de Llanera","IES Cristóbal Colón","Instituto Provincial de Educación Permanente (IPEP) de Granada","Colegio Heidelberg","Club de Ciencia y Tecnología ZalaTecno de IES Menéndez Pidal Zalaeta","IES Ramón Menéndez Pidal Zalaeta","IES ERAS DE RENUEVA","Liceo francés internacional de Alicante","Arcangel International School","Colegio Lope de Vega","IES Jose Caballero","CEIP MANUEL ALONSO","CEIP Alejandra Soler","IES Parque de Monfragüe","IES VALDEHIERRO ","CEIP San Pedro de los Arcos","IES Francisco Romero Vargas","Collegi Creanova","IES Fray Bartolomé de las Casas ","IES FRANCISCO RODRÍGUEZ MARÍN","IES San Antonio"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[28.08896810588586,43.43666195598857],"lng":[-15.56829056174838,3.353392376296567]}},"evals":[],"jsHooks":[]}</script>
+<p><br/></p>
+</div>
+<div id="tabla-centros11f" class="section level3">
+<h3>Tabla Centros11F</h3>
+<p>En esta tabla podéis consultar las actividades programadas por los
+centros educativos por provincia, municipio, tipo de actividad, etc.
+Podéis filtrar por varios criterios desde la fila superior (aparecerá
+una <strong>X</strong> en las columnas que tengan el filtro
+activado).</p>
+<p>Si pincháis en el nombre del centro podréis acceder a más información
+útil.</p>
+<p><br/></p>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ca84a82a1721dc386af4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ca84a82a1721dc386af4">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["<a href='centros11f_todos.html#referencia-28' target='_self'>IES Extremadura<\/a>","<a href='centros11f_todos.html#referencia-39' target='_self'>Colegio Abecé<\/a>","<a href='centros11f_todos.html#referencia-40' target='_self'>Colegio Abecé<\/a>","<a href='centros11f_todos.html#referencia-41' target='_self'>IES JULIO VERNE<\/a>","<a href='centros11f_todos.html#referencia-42' target='_self'> IES JULIO VERNE<\/a>","<a href='centros11f_todos.html#referencia-43' target='_self'>IES Pino Montano<\/a>","<a href='centros11f_todos.html#referencia-44' target='_self'>E.I. FERNANDO VILLALÓN<\/a>","<a href='centros11f_todos.html#referencia-45' target='_self'>E.I. FERNANDO VILLAÓN<\/a>","<a href='centros11f_todos.html#referencia-48' target='_self'>IES Alameda de Osuna<\/a>","<a href='centros11f_todos.html#referencia-49' target='_self'>IES Los Molinos <\/a>","<a href='centros11f_todos.html#referencia-50' target='_self'>CEIP CIUDAD DEL SOL<\/a>","<a href='centros11f_todos.html#referencia-51' target='_self'>CEIP Ángel León<\/a>","<a href='centros11f_todos.html#referencia-52' target='_self'>IES Marqués de Santillana<\/a>","<a href='centros11f_todos.html#referencia-61' target='_self'>CPI Soledad Puértolas<\/a>","<a href='centros11f_todos.html#referencia-62' target='_self'>IES Eugenio Frutos<\/a>","<a href='centros11f_todos.html#referencia-63' target='_self'>IES Eugenio Frutos<\/a>","<a href='centros11f_todos.html#referencia-64' target='_self'>Colegio Padre Enrique de Ossó<\/a>","<a href='centros11f_todos.html#referencia-69' target='_self'>IES Jaime II<\/a>","<a href='centros11f_todos.html#referencia-73' target='_self'>CEIP MIGUEL HERNÁNDEZ <\/a>","<a href='centros11f_todos.html#referencia-74' target='_self'>COLEGIO JUAN XXIII<\/a>","<a href='centros11f_todos.html#referencia-76' target='_self'>IES ALFONSO VI <\/a>","<a href='centros11f_todos.html#referencia-77' target='_self'>CEIP MONTECANAL<\/a>","<a href='centros11f_todos.html#referencia-78' target='_self'>Colegio Los Tilos<\/a>","<a href='centros11f_todos.html#referencia-79' target='_self'>IES Aldebarán<\/a>","<a href='centros11f_todos.html#referencia-80' target='_self'>Reina Violant<\/a>","<a href='centros11f_todos.html#referencia-81' target='_self'>IES de la Muela<\/a>","<a href='centros11f_todos.html#referencia-82' target='_self'>IES Anselmo Lorenzo<\/a>","<a href='centros11f_todos.html#referencia-83' target='_self'>Ies Comercio <\/a>","<a href='centros11f_todos.html#referencia-91' target='_self'>IES Valmayor<\/a>","<a href='centros11f_todos.html#referencia-92' target='_self'>IES Valmayor <\/a>","<a href='centros11f_todos.html#referencia-97' target='_self'>IES ENRIQUE TIERNO GALVÁN<\/a>","<a href='centros11f_todos.html#referencia-99' target='_self'>IES Galeón<\/a>","<a href='centros11f_todos.html#referencia-100' target='_self'>Colegio Pío XII<\/a>","<a href='centros11f_todos.html#referencia-101' target='_self'>IES Llorenç Garcias i Font<\/a>","<a href='centros11f_todos.html#referencia-103' target='_self'>CEIP Nª Sª de la Salud<\/a>","<a href='centros11f_todos.html#referencia-104' target='_self'>CEIP San Juan Bautista<\/a>","<a href='centros11f_todos.html#referencia-108' target='_self'>Escola Rosalía de Castro<\/a>","<a href='centros11f_todos.html#referencia-109' target='_self'>IES RIBERA DEL BULLAQUE<\/a>","<a href='centros11f_todos.html#referencia-110' target='_self'>CPEIPS El Carmelo HLBHIP (AMOREBIETA)<\/a>","<a href='centros11f_todos.html#referencia-111' target='_self'>Colegio La Anunciata<\/a>","<a href='centros11f_todos.html#referencia-116' target='_self'>ÍES Monterroso<\/a>","<a href='centros11f_todos.html#referencia-129' target='_self'>IES SERRANÍA BAJA<\/a>","<a href='centros11f_todos.html#referencia-130' target='_self'>IES ORDEN DE SANTIAGO<\/a>","<a href='centros11f_todos.html#referencia-141' target='_self'>I.E.S.Joaquín Sama<\/a>","<a href='centros11f_todos.html#referencia-142' target='_self'>I.E.S. Joaquín Sama<\/a>","<a href='centros11f_todos.html#referencia-149' target='_self'>CEIP MARÍA MOLINER<\/a>","<a href='centros11f_todos.html#referencia-157' target='_self'>IES Puente Ajuda<\/a>","<a href='centros11f_todos.html#referencia-158' target='_self'>IES Torre del Rei<\/a>","<a href='centros11f_todos.html#referencia-159' target='_self'>CEIP Ponce de León <\/a>","<a href='centros11f_todos.html#referencia-161' target='_self'>Colegio Santa Ana ( Calatayud)<\/a>","<a href='centros11f_todos.html#referencia-163' target='_self'>IES Barri del Carme<\/a>","<a href='centros11f_todos.html#referencia-165' target='_self'>IES Berenguer Dalmau<\/a>","<a href='centros11f_todos.html#referencia-168' target='_self'>Escola Municipal d'Adults Natura<\/a>","<a href='centros11f_todos.html#referencia-169' target='_self'>IES Santa Cruz<\/a>","<a href='centros11f_todos.html#referencia-170' target='_self'>IES Villa de Firgss<\/a>","<a href='centros11f_todos.html#referencia-171' target='_self'>IES Alfonso II<\/a>","<a href='centros11f_todos.html#referencia-175' target='_self'>IES EL BROCENSE<\/a>","<a href='centros11f_todos.html#referencia-187' target='_self'>CEIP COMUNIDAD DE APRENDIZAJE CABALLERO DE LA ROSA<\/a>","<a href='centros11f_todos.html#referencia-193' target='_self'>IES Ojos del Guadiana <\/a>","<a href='centros11f_todos.html#referencia-194' target='_self'>IES Ojos del Guadiana<\/a>","<a href='centros11f_todos.html#referencia-196' target='_self'>Colegio Jesús-María El cuco<\/a>","<a href='centros11f_todos.html#referencia-201' target='_self'>IES FERNANDO III<\/a>","<a href='centros11f_todos.html#referencia-213' target='_self'>IES Juan Pérez Mercader<\/a>","<a href='centros11f_todos.html#referencia-214' target='_self'>CESIF<\/a>","<a href='centros11f_todos.html#referencia-229' target='_self'>Colegio Alemán de Bilbao<\/a>","<a href='centros11f_todos.html#referencia-231' target='_self'>IESO PÚBLIO LÓPEZ MONDÉJAR<\/a>","<a href='centros11f_todos.html#referencia-233' target='_self'>IES JERÓNIMO ZURITA<\/a>","<a href='centros11f_todos.html#referencia-239' target='_self'>IES Zabalgana BHI<\/a>","<a href='centros11f_todos.html#referencia-243' target='_self'>IES de LLanera<\/a>","<a href='centros11f_todos.html#referencia-244' target='_self'>IES de Llanera<\/a>","<a href='centros11f_todos.html#referencia-246' target='_self'>IES Cristóbal Colón<\/a>","<a href='centros11f_todos.html#referencia-247' target='_self'>Instituto Provincial de Educación Permanente (IPEP) de Granada<\/a>","<a href='centros11f_todos.html#referencia-249' target='_self'>Colegio Heidelberg<\/a>","<a href='centros11f_todos.html#referencia-250' target='_self'>Club de Ciencia y Tecnología ZalaTecno de IES Menéndez Pidal Zalaeta<\/a>","<a href='centros11f_todos.html#referencia-251' target='_self'>IES Ramón Menéndez Pidal Zalaeta<\/a>","<a href='centros11f_todos.html#referencia-252' target='_self'>IES ERAS DE RENUEVA<\/a>","<a href='centros11f_todos.html#referencia-253' target='_self'>Institut Cal Gravat<\/a>","<a href='centros11f_todos.html#referencia-255' target='_self'>Liceo francés internacional de Alicante<\/a>","<a href='centros11f_todos.html#referencia-257' target='_self'>Arcangel International School<\/a>","<a href='centros11f_todos.html#referencia-258' target='_self'>Colegio Lope de Vega<\/a>","<a href='centros11f_todos.html#referencia-263' target='_self'>IES Jose Caballero<\/a>","<a href='centros11f_todos.html#referencia-278' target='_self'>CEIP MANUEL ALONSO<\/a>","<a href='centros11f_todos.html#referencia-280' target='_self'>CEIP Alejandra Soler<\/a>","<a href='centros11f_todos.html#referencia-281' target='_self'>IES Parque de Monfragüe<\/a>","<a href='centros11f_todos.html#referencia-282' target='_self'>IES VALDEHIERRO <\/a>","<a href='centros11f_todos.html#referencia-283' target='_self'>CEIP San Pedro de los Arcos<\/a>","<a href='centros11f_todos.html#referencia-285' target='_self'>IES Francisco Romero Vargas<\/a>","<a href='centros11f_todos.html#referencia-286' target='_self'>Collegi Creanova<\/a>","<a href='centros11f_todos.html#referencia-289' target='_self'>IES Fray Bartolomé de las Casas <\/a>","<a href='centros11f_todos.html#referencia-290' target='_self'>IES FRANCISCO RODRÍGUEZ MARÍN<\/a>","<a href='centros11f_todos.html#referencia-291' target='_self'>IES San Antonio<\/a>","<a href='centros11f_todos.html#referencia-292' target='_self'>Jardín de Niños Christa McAuliffe<\/a>"],["Badajoz","Valencia/València","Valencia/València","Toledo","Toledo","Sevilla","Sevilla","Sevilla","Madrid","Cádiz","Sevilla","Madrid","Madrid","Zaragoza","Badajoz","Badajoz","Zaragoza","Alicante/Alacant","Madrid","Valencia/València","Valladolid","Zaragoza","Madrid","Toledo","Barcelona","Zaragoza","Madrid","La Rioja","Madrid","Madrid","Madrid","Huelva","Valencia/València","Illes Balears","Toledo","Málaga","Pontevedra","Ciudad Real","Bizkaia","Zaragoza","Málaga","Cuenca","Cuenca","Badajoz","Badajoz","Zaragoza","Badajoz","Castellón/Castelló","Valladolid","Zaragoza","Valencia/València","Valencia/València","Barcelona","Cantabria","Las Palmas","Asturias","Cáceres","La Rioja","Ciudad Real","Ciudad Real","Cádiz","Valencia/València","Huelva","Madrid","Bizkaia","Cuenca","Zaragoza","Araba/Álava","Asturias","Asturias","Cádiz","Granada","Las Palmas","A Coruña","A Coruña","León","Barcelona","Alicante/Alacant","Madrid","Madrid","Huelva","Sevilla","Valencia/València","Cáceres","Toledo","Asturias","Cádiz","Barcelona","Sevilla","Sevilla","Huelva","Fuera de España"],["6480, Montijo","46701, Gandia","46701, Gandia","45593, Bargas","45593, Bargas","41015, Sevilla","41015, SEVILLA","41015, SEVILLA","28042, Madrid","11140, Conil de la Frontera ","41400, ÉCIJA","28770, Colmenar Viejo","28770, Colmenar Viejo","50019, Zaragoza","6800, Guareña","6470, Guareña ","50017, Zaragoza","3015, ALICANTE","28850, Torrejón de Ardoz ","46100, BURJASSOT","47410, Olmedo","50012, ZARAGOZA","28038, Madrid","45510, Fuensalida","8012, Barcelona","50196, La Muela","28330, San Martín de la Vega","26004, Logroño","28210, Valdemorillo","28210, Valdemorillo ","28041, MADRID","21410, Isla Cristina","46010, Valencia","7570, Artà ","45222, Borox","29220, Cuevas Bajas","36214, Vigo","13120, PORZUNA","48340, AMOREBIETA","50003, Zaragoza","29680, Estepona","16330, Landete","16410, HORCAJO DE SANTIAGO","6500, San Vicente de Alcántara","6500, San Vicente de Alcántara","50007, ZARAGOZA","6100, Olivenza","12594, Orpesa","47006, Valladolid ","50300, Calatayud ","46003, Valencia","46470, Catarroja","8397, Pineda de Mar","39660, Villabañez","35430, Firgas","33007, Oviedo","10002, CÁCERES","26006, LOGROÑO","13250, Daimiel","13250, Daimiel","11409, Jerez de la Frontera","46620, Ayora","21122, Corrales-Aljaraque","28045, Madrid","48004, Bilbao","16239, Casasimarro","50009, ZARAGOZA","1015, Vitoria-Gasteiz","33424, Llanera","33424, LLANERA","11540, Sanlúcar de Bda","18012, Granada","35015, Las Palmas de Gran Canaria","15009, A CORUÑA","15002, A CORUÑA","24010, LEÓN","8240, Manresa","3560, El Campello","28024, Madrid","28805, Alcalá de Henares","21004, Huelva","41500, ALCALÁ DE GUADAÍRA","46006, Valencia","10600, Plasencia","45710, Madridejos","33012, Oviedo","11408, Jerez de la Frontera","8173, Sant Cugat del Vallés","41530, Morón de la Frontera ","41640, OSUNA","21710, Bollullos Par del Condado","4200, Coyoacán"],["Exposición","Exposición","Exposición","Juejos de rol, dramatizaciones."," Juejos de rol, dramatizaciones.","Taller;Exposición;Escape Room","Taller;Proyecto","Taller;Proyecto","Exposición;III Concurso de monólogos científicos","Taller","Proyecto","Taller;Exposición;","Exposición de pósteres y yincana","Taller","Proyecto","Exposición;Concurso","Proyecto","Exposición","Taller","Exposición","Taller;Exposición;Proyecto","Exposición","Proyecto","Exposición","Taller;Exposición;Acto colaboración Hospital Vall d'Hebrón","Exposición;Actividades de aula","Prácticas de laboratorio","Exposición","Taller;Exposición","Taller;Exposición;Ponencias","Taller;Exposición","Exposición;Proyecto","Exposición;Proyecto","Exposición;Participació en el concurs \"Jo també vull ser cientifica\"","Taller;Exposición;Proyecto","Exposición","Taller","Proyecto","Taller;Exposición","Taller","Diferentes actividades durante la semana del 5 al 9 de febrero","Exposición;Charla","Taller;Exposición","Exposición","Breakout","Taller;Exposición","Vídeo","Exposición","Talleres y charlas","Proyecto","Exposición","Exposición","Proyecto","Exposición;nos disfrazamos de mujeres y hombres de la ciencia","Escape Room Grupal online ","Exposición","Yincana","Taller;Exposición;Proyecto;Asistencia a exposiciones, charlas y otras actividades dentro de la programación del Día Internacional de la Mujer y la Niña en la Ciencia programadas por otras instituciones","Proyecto","Exposición","Taller;Exposición","Taller;Exposición;Proyecto","Conferencias","Concurso \"La Mujer en la Ciencia\"","Taller;Exposición","Proyecto","TEATRALIZACIÓN DE MUJERES CIENTÍFICAS","Conferencia","creación de videos","Exposición","Exposición","Exposición","Taller;Exposición","Ciclo de conferencias con/ o sobre mujeres STEAM","PROGRAMA DE ACTIVIDADES 11F  ZALATECNO","Taller","Proyecto","Charlas-coloquio ","Charla online","Taller","Exposición","Exposición","Taller","Vídeos, audios y juego del dominó para conocer a algunas científicas","Gymkhana","Proyecto","Taller;Exposición;Proyecto","Taller;Exposición","Taller;Exposición","OBRA TEATRAL","Taller","Capsulas cortas en Redes Sociales"],["La ciencia no es cuestión de género","Mujeres 11D","Exposición de cuadros","\"Viajes científicos extraordinarios\"","“Viajes científicos extraordinarios”","Evolución histórica de la mujer en el campo STEM","LAS MUJERES Y EL MEDIO AMBIENTE","LAS MUJERES Y EL MEDIO AMBIENTE","III Concurso de monólogos científicos IES Alameda de Osuna","Desayuno Científico ","Cuenta mi historia","Centros11F","Yincana de mujeres científicas","De Isabel Zendal a Katalin Karikó: las vacunas salvan vidas","MUCIREÑAS. Mujeres Científicas de Guareña","Exposición Mujeres Matemáticas . Concurso","Las mujeres científicas pusieron los cimientos, nosotros somos el futuro","Exposición sobre mujeres científicas a partir de las infografías realizadas por el alumnado y el cuestionario sobre la misma","EN EL LABORATORIO DE...","MUJERES EN LA CIENCIA Y LA TECNOLOGÍA: PASADO, PRESENTE Y FUTURO","Semana de la ciencia","Exposción de fotografías sobre experiencias realizadas en el aula y carteles alusivos al 11F ","XV Semana de las Ciencias del Colegio Los Tilos","Las Estrellas de la Ciencia","Semana de la mujer y la niña en la Ciencia","Mujeres científicas con pseudónimo o excluidas de reconocimiento","Recreos científicos en honor a mujeres científicas","Mi científica favorita","Día de la Mujer y la Niña en la ciencia","Semana de la Mujer y la Niña en la Ciencia en Valmayor ","Charlas y exposición de biografías.","Representación teatral mujeres científicas ","Descubriendo científicas","Jo també vull ser científica ","Mujeres en la ciencia","Charla sobre la mujer, agricultura y medioambiente.","Actividade nos barcos oceanográficos","CIENCIA EN FEMENINO","IZARREN IBILBIDEA (el paseo de las estrellas)","Un paseo por la mujer y la niña en la ciencia.","#ConLaCiencia","Charla Mujeres Científica","Las alumnas de   Bachillerato   van a realizar   prácticas de biología,  física y  programación. ","Concurso de puertas homenajeando a las mujeres científicas","\"Tras el gran legado de ellas\"","De profesión... CIENTÍFICA","Yo soy de ciencias.","Exposición \"Arquitectes i enginyeres civils\" ","Semana de la mujer y la niña STEAM","“Camino de estrellas”","Dones STEM, dones valents","La ciencia es para tod@s","Creación de juegos  sobre mujeres científicas","Grandes descubrimientos por grandes mujeres","Escape room sobre “La Mujer y la niña en la ciencia “","Dialogamos con Concha Masa Noceda en el IES Alfonso II","III Yincana STEAM","SEMANA DE LA MUJER Y LA NIÑA EN LA CIENCIA","Descubriendo mujeres científicas","Somos mujeres y hacemos ciencia","Lo que no se da, se pierde. ¡Compartimos nuestros saberes!","MUJERES ASTRONAUTAS QUE HAN LLEGADO MUY LEJOS","Quiero ser Ingeniera","En CESIF (https://www.cesif.es) hemos organizado un concurso entre nuestros alumn@s para conmemorar el día internacional de la  mujer y la niña en la ciencia.","Biomedicina","¿Y si nuestras científicas hubiesen tenido Instagram?","CASTING DE MUJERES CIENTÍFICAS Y ESCINIFICACIÓN DE CIENTÍFICAS EN DIFERENTES AULAS","Conferencias mpartidas por mujeres sobre ciencia","#científicasenTikTok","Conocemos el Proyecto STEM","Exposición de mujeres científicas en el mar","Mujeres científicas en la Historia","\"Amazonía: Defensoras de la Naturaleza\"","Quincena 11F de ZalaTecno","Quincena 11F de ZalaTecno- Actividades","Taller de creps con Marie Curie y Ève Curie","La Dona i la Nena científica","Charlas-coloquio por mujeres científicas dirigidas a los alumnos de ESO","La Mujer en la Ciencia y la Ingeniería","Historia de las mujeres en la ciencia","Quiero organizar una charla con vosotros","EXPOSICIÓN TRABAJOS DE INVESTIGACIÓN. LA MUJER Y LA NIÑA EN LA CIENCIA.","Día de la Mujer y Ciencia. ","CONOCE A ALGUNAS DE LAS MUJERES CIENTÍFICAS MÁS INFLUYENTES EN LA HISTORIA","Gymkhana 11F \"Mujeres en la ciencia\"","¿A dónde nos lleva Valentina?"," La mujer y la niña en la ciencia","Jornada de Charlas lideradas por mujeres con ciencia","De la Antártida a la Ingeniería Forestal... El papel de la mujer en la Ciencia ","\"Dale la vuelta a la foto\"","‘Yo también soy científica’, eslogan de la alumnas de 4º de ESO del IES San Antonio para la celebración del Día Internacional de la Mujer y la Niña en la Ciencia #11F","Capsulas cortas en Redes Sociales"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Centro<\/th>\n      <th>Provincia<\/th>\n      <th>Localidad<\/th>\n      <th>Tipo actividad<\/th>\n      <th>Título<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<p>Última actualización: 2024-02-21</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
